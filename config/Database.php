@@ -29,15 +29,14 @@ class Database {
 =======
     private static ?PDO $instance = null;
 
-    private function __construct() {}
-
+    // Pour ton code à toi (le Singleton moderne)
     public static function getInstance(): PDO {
         if (self::$instance === null) {
             try {
                 self::$instance = new PDO(
                     'mysql:host=localhost;dbname=revieweo;charset=utf8mb4',
                     'root', 
-                    '', // Laisse vide pour XAMPP
+                    '', 
                     [
                         PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -50,5 +49,14 @@ class Database {
         }
         return self::$instance;
     }
+<<<<<<< HEAD
 }
 >>>>>>> 7bed7a2 (Fix: Navigation XAMPP et Backend Auth fonctionnel)
+=======
+
+    // Pour le code de tes camarades (compatibilité)
+    public function getConnection() {
+        return self::getInstance();
+    }
+}
+>>>>>>> 6cf3afe (Full Update: Authentification complète et Navigation XAMPP fixée)
