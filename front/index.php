@@ -14,13 +14,14 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark pt-3">
   <div class="container">
-    <a class="navbar-brand" href="#">SCENEVIEW</a>
+    <a class="navbar-brand" href="../views/home.php">SCENEVIEW</a> <!-- CORRECTION 1 : Lien vers l'accueil -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
   <span class="navbar-toggler-icon"></span>
 </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto gap-3">
-        <li class="nav-item"><a class="nav-link" href="#">Sign In</a></li>
+        <!-- CORRECTION 2 : Lien vers ta page login -->
+        <li class="nav-item"><a class="nav-link" href="../views/login.php">Sign In</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Films</a></li>
         <li class="nav-item"><a class="nav-link" href="#">Lists</a></li>
       </ul>
@@ -288,7 +289,9 @@
     </div>
 
     <div class="button-row">
-<button class="btn btn-primary w-100">Sign in to rate</button>    </div>
+        <!-- CORRECTION 3 : Le bouton devient un lien cliquable -->
+        <a href="../views/login.php" class="btn btn-primary w-100" style="text-decoration: none;">Sign in to rate</a>    
+    </div>
 
 
     <div class="links-row">
