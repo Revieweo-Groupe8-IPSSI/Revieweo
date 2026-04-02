@@ -1,0 +1,438 @@
+body { 
+    background-color: #14181c; 
+    color: #9ab; 
+    font-family: 'Graphik', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1100px !important;
+}
+
+/* Links on Letterboxd usually have a slight transition */
+a {
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+/* NAVBAR */
+.navbar-brand { color: #ff8000 !important; letter-spacing: 2px; font-weight: 800 !important; }
+.nav-link { color: #9ab !important; text-transform: uppercase; font-size: 12px; font-weight: bold; }
+.nav-link:hover { color: #fff !important; }
+
+/* Aligning the content section */
+.content-section {
+    margin-top: -160px; /* Pulls the content up into the hero */
+    position: relative;
+    z-index: 10;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1100px;
+}
+/* Ensure the columns don't have weird offset gaps */
+.row.justify-content-center {
+    display: flex;
+    gap: 140px; /* Adds a clean gap between your poster, text, and sidebar */
+}
+
+/* Fix Hero Image and Background */
+.hero-wrap {
+    position: relative;
+    height: 250px;
+    background-color: #14181c;
+    width: 100%;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-gradient {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(20,24,28,0) 20%, rgba(20,24,28,1) 100%);
+    z-index: 2;
+}
+
+/* Let's fix the text color for the director name to match the link blue */
+.text-white + span, .text-white {
+    color: #fff !important;
+}
+.director-link { /* You can wrap Denis Villeneuve in a class */
+    color: #9ab;
+    text-decoration: none;
+    font-weight: bold;
+}
+.director-link:hover { color: #fff; }
+
+/* Poster Size (Letterboxd Large size is usually around 230px-250px) */
+.movie-poster {
+    width: 350px; /* Fills the col-md-3 */
+    max-width: 550px; 
+    border: 1px solid #445566;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    display: block;
+}
+
+/* Text Alignment - Matches the top of the poster */
+.movie-info {
+    padding-top: 25px; /* Adjust this to line up the 'D' in Dune with the top of the poster */
+}
+
+.movie-title {
+    color: #fff;
+    font-weight: 800;
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-family: 'Roboto Condensed', sans-serif; /* Using the bolder font */
+}
+
+.director-line {
+    font-size: 1.1rem;
+    color: #899aa9;
+}
+
+.director-name {
+    color: #fff;
+    font-weight: bold;
+    border-bottom: 1px solid #445566; /* Subtle underline like the real site */
+}
+
+.tagline {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #789;
+    letter-spacing: 1.2px;
+    margin-top: 30px;
+}
+
+.synopsis {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #9ab;
+}
+
+
+.movie-stats {
+    display: flex;
+    justify-content: flex-start; /* Aligns them to the left */
+    align-items: center;
+    gap: 240px !important;              /* Adjust this number to change the space */
+    width: 100%;
+    margin-top: 12px; /* Space between poster and stats */
+    padding: 0 5px;   /* Slight padding so they don't touch the edges */
+    font-family: 'Graphik', sans-serif;
+}
+
+
+.stat-item {
+    color: #ff8000; /* Your requested orange */
+    font-size: 13px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 4px; /* Space between the icon and the number */
+}
+
+.stat-item .icon {
+    font-size: 14px;
+    /* If you eventually use an icon library like FontAwesome, 
+       this is where you'd style the specific icon size */
+}
+
+/* Optional: Make them slightly dim until hovered for a pro feel */
+.stat-item:hover {
+    filter: brightness(1.5);
+    cursor: default;
+}
+
+
+/* Star Styles */
+.stars {
+    font-size: 24px; /* Size of the stars */
+    display: flex;
+    gap: 2px;
+}
+
+.star {
+    color: #445566; /* Default Grey for unrated */
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+/* The Orange Active Class */
+.star.active {
+    color: #ff8000; /* Your orange theme */
+}
+
+/* INTERACTIVE STARS */
+.stars-hover {
+    display: flex;
+    flex-direction: row-reverse; /* The secret for the hover trick */
+    justify-content: flex-end;
+    gap: 2px;
+}
+.stars-hover span {
+    font-size: 20px; /* Smaller stars */
+    color: #445566; /* Grey default */
+    cursor: pointer;
+    transition: color 0.1s;
+}
+/* When you hover a star, it and all stars after it (to the left) turn orange */
+.stars-hover span:hover,
+.stars-hover span:hover ~ span {
+    color: #ff8000;
+}
+
+.action-box {
+    background-color: #2c3440;
+    border-radius: 4px;
+    padding: 15px;
+    width: 100%;
+    max-width: 250px;
+    font-family: 'Graphik', sans-serif;
+}
+
+.action-header {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #445566;
+    padding-bottom: 5px;
+    margin-bottom: 12px;
+}
+
+.action-header .label { font-size: 11px; font-weight: bold; color: #9ab; letter-spacing: 1px; }
+.action-header .count { font-size: 11px; color: #678; }
+
+.rating-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+/* Fixed Stars */
+.stars-hover {
+    display: flex;
+    gap: 2px;
+    color: #445566;
+    font-size: 22px;
+}
+.stars-hover span:hover { color: #ff8000; cursor: pointer; }
+
+.rating-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* Button Fix: Forcing it to stay horizontal */
+.btn-log {
+    width: 100%;
+    background-color: #445566;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block; /* Prevents vertical squishing */
+    margin-bottom: 12px;
+}
+
+.btn-log:hover { background-color: #556677; }
+
+/* Links Fix */
+.links-row {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #445566;
+    padding-top: 10px;
+}
+
+.links-row a {
+    color: #9ab;
+    font-size: 12px;
+    text-decoration: none;
+}
+.links-row a:hover { color: #fff; }
+
+/* Rating Number - Smaller to match */
+.rating-number {
+    font-size: 22px; 
+    font-weight: bold;
+    color: #fff;
+    margin-left: auto; /* Pushes it to the far right */
+}
+/* Header Text - Smaller and tighter */
+.action-box .small {
+    font-size: 11px !important;
+}
+
+/* Button Refinement */
+.btn-log {
+    background-color: #556677;
+    color: #fff;
+    border-radius: 3px;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Tab Headers */
+.custom-tabs {
+    border-bottom: 1px solid #445566 !important;
+}
+
+.custom-tabs .nav-link {
+    background: none !important;
+    border: none !important;
+    color: #9ab !important;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    padding: 8px 12px;
+}
+
+.custom-tabs .nav-link.active {
+    color: #fff !important;
+    border-bottom: 2px solid #fff !important; /* White underline for active tab */
+}
+
+.custom-tabs .nav-link:hover {
+    color: #ff8000 !important; /* Orange hover for inactive tabs */
+}
+
+/* Tag Cloud (The Pills) */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.tag {
+    background-color: #2c3440;
+    color: #9ab;
+    padding: 4px 8px;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.tag:hover {
+    background-color: #3d4654;
+    color: #ff8000; /* Orange text on hover */
+}
+
+/* Details Alignment */
+.detail-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.detail-label {
+    font-size: 11px;
+    color: #678;
+    font-weight: bold;
+    width: 100px; /* Aligns the tags to the same starting point */
+    border-bottom: 1px dotted #456;
+    margin-right: 15px;
+}
+.cast-wrapper {
+    transition: max-height 0.5s ease;
+    overflow: hidden;
+}
+
+.cast-wrapper.collapsed {
+    max-height: 95px; /* Shows about 2.5 rows */
+}
+
+.cast-wrapper.expanded {
+    max-height: 2500px; /* High enough to show all the new names */
+}
+
+.show-all-btn {
+    border: none;
+    background-color: #2c3440;
+    color: #9ab;
+    padding: 5px 12px;
+    font-size: 11px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.show-all-btn:hover {
+    color: #ff8000;
+    background-color: #3d4654;
+}
+
+.review-item {
+    padding: 15px 0;
+    border-color: #2c3440 !important;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.reviewer-name {
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.review-stars {
+    color: #ff8000; /* Your orange theme */
+    font-size: 14px;
+}
+
+.review-comments-count {
+    color: #678;
+    font-size: 12px;
+}
+
+.review-text {
+    color: #9ab;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+.review-text.italicized {
+    font-style: italic;
+    color: #678;
+}
+
+.review-footer {
+    display: flex;
+    align-items: center;
+}
+
+.likes-count {
+    color: #678;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.likes-count:hover {
+    color: #ff8000;
+    cursor: pointer;
+}
+
+.btn-log { background-color: #445566; color: white; border: none; width: 100%; font-weight: bold; }
+.btn-log:hover { background-color: #556677; color: white; }

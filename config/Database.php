@@ -3,14 +3,14 @@
 class Database {
     private static ?PDO $instance = null;
 
-    // Le Singleton pour ton code à toi
+    // Le Singleton : La meilleure pratique pour ne pas saturer le serveur MySQL
     public static function getInstance(): PDO {
         if (self::$instance === null) {
             try {
                 self::$instance = new PDO(
-                    'mysql:host=localhost;dbname=revieweo;charset=utf8',
-                    'root',
-                    '', // Ton mot de passe XAMPP (vide par défaut)
+                    'mysql:host=localhost;dbname=revieweo;charset=utf8mb4',
+                    'root', 
+                    '', // Vide par défaut sur XAMPP (Windows)
                     [
                         PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
                         PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
@@ -24,8 +24,9 @@ class Database {
         return self::$instance;
     }
 
-    // La fonction de compatibilité pour tes camarades
+    // Fonction de compatibilité pour permettre aux camarades d'utiliser le code existant
     public function getConnection() {
         return self::getInstance();
     }
 }
+?>
